@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -13,7 +14,15 @@ return new class extends Migration
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
+            $table->string('nopolisi')->nullable();
+            $table->string('merk')->nullable();
+            $table->enum('jenis', ['sedan', 'MPV', 'SUV'])->nullable();
+            $table->string('kapasitas')->nullable();
+            $table->string('harga')->nullable();
+            $table->text('foto')->nullable();
             $table->timestamps();
+            $table->softDeletes('deleted_at');
         });
     }
 
