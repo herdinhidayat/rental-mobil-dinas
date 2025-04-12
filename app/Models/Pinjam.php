@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transaksi extends Model
+
+class Pinjam extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'transaksis';
+    protected $table = 'pinjams';
     protected $primaryKey = 'id';
     protected $fillable = ['id', 'user_id', 'mobil_id', 'nama', 'ponsel', 'alamat', 'lama', 'tgl_pesan', 'total', 'status'];
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
