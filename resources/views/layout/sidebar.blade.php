@@ -12,15 +12,15 @@
                 </div>
             </div>
             <div class="ms-3">
-                <h6 class="mb-0">Jhon Doe</h6>
-                <span>Admin</span>
+                <h6 class="mb-0">{{ auth()->user()->name }}</h6>
+                <span>{{ auth()->user()->role }}</span>
             </div>
         </div>
         <div class="navbar-nav w-100">
             <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a href="widget.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Widgets</a>
-            <a href="form.html" class="nav-item nav-link"><i class="fa fa-file-archive me-2"></i>Peminjaman</a>
-            <a href="table.html" class="nav-item nav-link"><i class="fa fa-car me-2"></i>Mobile</a>
+            <a href="widget.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Peminjaman</a>
+            <a href="form.html" class="nav-item nav-link"><i class="fa fa-file-archive me-2"></i>Laporan Pinjam</a>
+            <a href="table.html" class="nav-item nav-link"><i class="fa fa-car me-2"></i>Mobil</a>
             <a href="chart.html" class="nav-item nav-link"><i class="fa fa-users me-2"></i>Users</a>
         </div>
     </nav>

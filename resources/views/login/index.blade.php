@@ -54,7 +54,7 @@
                             </a>
                             <h3>Sign In</h3>
                         </div>
-                        <form action="{{ route('login.prose') }}" method="POST">
+                        <form action="{{ route('login.proses') }}" method="POST">
                             @csrf
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>

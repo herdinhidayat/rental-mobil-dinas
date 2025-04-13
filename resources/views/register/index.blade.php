@@ -49,47 +49,69 @@
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>RENTCARNAS</h3>
                             </a>
-                            <h3>Sign In</h3>
+                            <h3>Sign Up</h3>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"
-                                placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        @if (session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
                             </div>
-                            <a href="">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                        @endif
+                        <form action="{{ route('register.store') }}" method="POST">
+                            @csrf
+                            @error('name')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="text" name="name" class="form-control" id="floatingText"
+                                    placeholder="Name" value="{{ @old('name') }}">
+                                <label for="floatingText">Nama</label>
+                            </div>
+                            @error('email')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="email" name="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com" value="{{ @old('email') }}">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            @error('password')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                            <div class="form-floating mb-4">
+                                <input type="password" name="password" class="form-control" id="floatingPassword"
+                                    placeholder="Password" value="{{ @old('password') }}">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
+                            <p class="text-center mb-0">Already have an Account? <a href="{{ route('login') }}">Sign
+                                    In</a></p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('assets/lib/chart/chart.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/tempusdominus/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('assets/lib/chart/chart.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/tempusdominus/js/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
-    <!-- Template Javascript -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+        <!-- Template Javascript -->
+        <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
