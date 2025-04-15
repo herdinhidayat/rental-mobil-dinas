@@ -21,7 +21,7 @@
             <a href="widget.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Peminjaman</a>
             <a href="form.html" class="nav-item nav-link"><i class="fa fa-file-archive me-2"></i>Laporan Pinjam</a>
             <a href="table.html" class="nav-item nav-link"><i class="fa fa-car me-2"></i>Mobil</a>
-            <a href="chart.html" class="nav-item nav-link"><i class="fa fa-users me-2"></i>Users</a>
+            <a href="{{ route('user') }}" class="nav-item nav-link"><i class="fa fa-users me-2"></i>Users</a>
         </div>
     </nav>
 </div>
